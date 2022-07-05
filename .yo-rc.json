@@ -1,0 +1,11 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["sime-api"],
+    "clusteredDbApps": {},
+    "directoryPath": "./",
+    "gatewayType": "SpringCloudGateway",
+    "jwtSecretKey": "N2U3MzI5MWMxZWYxYzk2MmFiYWQwOWY2MjgxOTYxMTkxOWJjZjg2ZGYwMmEzMGZiNTVlODg0MzMxN2M2YzYyM2EwMWMwNjhiM2FmYzc2MTM3NDM1ZDM4MDg5Y2JiNjZlNjQyYQ==",
+    "monitoring": "no",
+    "serviceDiscoveryType": false
+  }
+}
