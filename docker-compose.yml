@@ -1,31 +1,24 @@
 services:
-#  simeapi:
-#    image: simeapi
-#    environment:
-#      - _JAVA_OPTIONS=-Xmx512m -Xms256m
-#      - SPRING_PROFILES_ACTIVE=prod,api-docs
-#      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-#      - SPRING_DATASOURCE_URL=jdbc:mysql://simeapi-mysql:3306/simeapi?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-#      - SPRING_LIQUIBASE_URL=jdbc:mysql://simeapi-mysql:3306/simeapi?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-#      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster
-#      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=web_app
-#      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=web_app
-#      - JHIPSTER_SLEEP=30
-#      - SERVER_PORT=8080
-#    ports:
-#      - "8080:8080"
-      
-  simeapi-mysql:
+  dbelec-mysql:
+    restart: always
     image: mysql:8.0.28
     platform: linux/x86_64
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=simeapi
+      - MYSQL_ROOT_PASSWORD=R2V2MDF1YzEwbjQ
+      - MYSQL_DATABASE=databaselectiva
+      - MYSQL_USER=dbelecuser
+      - MYSQL_PASSWORD=KnNpbWVhcGl0ZXN0Kg
     command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
     ports:
-      - 3306:3306
+      - 13306:3306
+      - 8080:8080
+      - 19080:9080
     volumes:
-      - dbsimemysql:/var/lib/mysql
+      - dbelec-prod:/var/lib/mysql
+    networks:
+      - backend
 # Names our volume
 volumes:
-  dbsimemysql:
+  dbelec-prod:
+networks:
+  backend:
